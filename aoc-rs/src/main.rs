@@ -36,9 +36,9 @@ fn main() {
         Problems::Invalid => panic!("Invalid problem number"),
         Problems::Problem1 => Box::new(problem1::Problem1 {}),
         Problems::Problem2 => Box::new(problem2::Problem2 {}),
+        Problems::Problem3 => Box::new(problem3::Problem3 {}),
+        Problems::Problem4 => Box::new(problem4::Problem4 {}),
         _ => unimplemented!("No solution yet!"), /*
-                                                 Problems::Problem3 => Box::new(problem3::Problem3 {}),
-                                                 Problems::Problem4 => Box::new(problem4::Problem4 {}),
                                                  Problems::Problem5 => Box::new(problem5::Problem5 {}),
                                                  Problems::Problem6 => Box::new(problem6::Problem6 {}),
                                                  Problems::Problem7 => Box::new(problem7::Problem7 {}),

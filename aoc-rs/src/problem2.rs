@@ -1,4 +1,4 @@
-use std::ops::Not;
+use std::{cmp::max, ops::Not};
 
 use strum::EnumString;
 
@@ -44,7 +44,28 @@ impl Problem for Problem2 {
             .to_string()
     }
 
-    fn solve_part2(&mut self, _lines: &[String]) -> String {
-        "".into()
+    fn solve_part2(&mut self, lines: &[String]) -> String {
+        lines
+            .iter()
+            .map(|l| {
+                let (_, games) = l.split_once(": ").unwrap();
+                let rgb = games.split("; ").flat_map(|g| g.split(", ")).fold(
+                    (0_u64, 0_u64, 0_u64),
+                    |acc, n| {
+                        let (count, color) = n.split_once(' ').unwrap();
+                        let count: u64 = count.parse().unwrap();
+                        let color: Color = color.try_into().unwrap();
+
+                        match color {
+                            Color::Red => (max(acc.0, count), acc.1, acc.2),
+                            Color::Green => (acc.0, max(acc.1, count), acc.2),
+                            Color::Blue => (acc.0, acc.1, max(acc.2, count)),
+                        }
+                    },
+                );
+                rgb.0 * rgb.1 * rgb.2
+            })
+            .sum::<u64>()
+            .to_string()
     }
 }
