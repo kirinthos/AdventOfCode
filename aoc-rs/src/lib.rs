@@ -6,6 +6,7 @@ pub mod problem4;
 pub mod problem5;
 pub mod problem6;
 pub mod problem7;
+pub mod problem8;
 
 use num_enum::TryFromPrimitive;
 use std::{
