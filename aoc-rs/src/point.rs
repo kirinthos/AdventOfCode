@@ -1,3 +1,5 @@
+use std::ops::Add;
+
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub struct Point {
     x: i32,
@@ -11,12 +13,38 @@ pub struct Point3D {
     z: i32,
 }
 
-impl std::ops::Add for Point {
+impl Add<Point> for Point {
     type Output = Self;
 
     fn add(mut self, rhs: Self) -> Self::Output {
         self.x += rhs.x;
         self.y += rhs.y;
+        self
+    }
+}
+
+impl PartialEq<(i32, i32)> for Point {
+    fn eq(&self, other: &(i32, i32)) -> bool {
+        self.x() == other.0 && self.y() == other.1
+    }
+}
+
+impl Add<(i32, i32)> for Point {
+    type Output = Self;
+
+    fn add(mut self, rhs: (i32, i32)) -> Self::Output {
+        self.x += rhs.0;
+        self.y += rhs.1;
+        self
+    }
+}
+
+impl Add<(usize, usize)> for Point {
+    type Output = Self;
+
+    fn add(mut self, rhs: (usize, usize)) -> Self::Output {
+        self.x += rhs.0 as i32;
+        self.y += rhs.1 as i32;
         self
     }
 }

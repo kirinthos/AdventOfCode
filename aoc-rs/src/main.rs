@@ -40,10 +40,10 @@ fn main() {
         Problems::Problem6 => Box::new(problem6::Problem6 {}),
         Problems::Problem7 => Box::new(problem7::Problem7 {}),
         Problems::Problem8 => Box::new(problem8::Problem8 {}),
+        Problems::Problem9 => Box::new(problem9::Problem9 {}),
+        Problems::Problem10 => Box::new(problem10::Problem10 {}),
+        Problems::Problem11 => Box::new(problem11::Problem11 {}),
         _ => unimplemented!("No solution yet!"), /*
-                                                 Problems::Problem9 => Box::new(problem9::Problem9 {}),
-                                                 Problems::Problem10 => Box::new(problem10::Problem10 {}),
-                                                 Problems::Problem11 => Box::new(problem11::Problem11 {}),
                                                  Problems::Problem12 => Box::new(problem12::Problem12 {}),
                                                  Problems::Problem13 => Box::new(problem13::Problem13 {}),
                                                  Problems::Problem14 => Box::new(problem14::Problem14 {}),
