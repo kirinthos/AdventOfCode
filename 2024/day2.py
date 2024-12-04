@@ -67,7 +67,7 @@ for l in data:
     if result:
         s += 1
     else:
-        for i in range(len(l)):
+        for i in range(len(l) - 1):
             modified = np.concatenate((l[0:i], l[i+1:]))
             result = analyze(modified)
             if result:
