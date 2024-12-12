@@ -32,7 +32,7 @@ counts = list(walk(np.array([x, y])) for x in range(bounds[0]) for y in range(bo
 print(sum(len(c) for c in counts))
 
 # part 2
-def walk(pt):
+def walk2(pt):
     if not in_bounds(pt):
         return None
 
@@ -44,5 +44,5 @@ def walk(pt):
     pts = list(tuple(p) for l in pts for p in l)
     return pts
 
-counts = list(walk(np.array([x, y])) for x in range(bounds[0]) for y in range(bounds[1]) if data[x, y] == 0)
+counts = list(walk2(np.array([x, y])) for x in range(bounds[0]) for y in range(bounds[1]) if data[x, y] == 0)
 print('part 2', sum(len(c) for c in counts))
